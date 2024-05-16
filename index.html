@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Сигма</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="lib/swiper/swiper.min.css">
+    <link rel="stylesheet" href="lib/venobox/venobox.min.css">
 </head>
 <body>
 <header>
@@ -13,10 +14,10 @@
             <div class="header">
                 <img src="./images/headerLogo.svg" alt="sigma_logo" class="logo-header">
                 <ul class="header__menu">
-                    <li class="header__menu__item"><a href="#">услуги</a></li>
-                    <li class="header__menu__item"><a href="#">контакты</a></li>
-                    <li class="header__menu__item"><a href="#">о нас</a></li>
-                    <li class="header__menu__item"><a href="#">заявка</a></li>
+                    <li class="header__menu__item"><a href="#service">услуги</a></li>
+                    <li class="header__menu__item"><a href="#contacts">контакты</a></li>
+                    <li class="header__menu__item"><a href="#about">о нас</a></li>
+                    <li class="header__menu__item"><a href="#link">заявка</a></li>
                 </ul>
             </div>
         <div class="header-mobile">
@@ -29,10 +30,10 @@
                         <span class="line line3"></span>
                     </div>
                     <ul class="menu-items">
-                        <li><a href="#home">Услуги</a></li>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Заявка</a></li>
+                        <li><a href="#service">Услуги</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#link">Заявка</a></li>
                     </ul>
                 </div>
             </nav>
@@ -48,12 +49,6 @@
                         <div class="card__top card__top-slider">
                             <img class="card__top-slider__image" src="./images/sigmaCard.png" alt="sigmaCard">
                         </div>
-                        <div class="card__bottom card__bottom-slider">
-                            <span class="card__bottom-slider__text">
-                                С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития. <br>
-Повседневная практика показывает, что постоянное информационно.
-                            </span>
-                        </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
@@ -61,36 +56,24 @@
                         <div class="card__top card__top-slider">
                             <img class="card__top-slider__image" src="./images/sigmaCard.png" alt="sigmaCard">
                         </div>
-                        <div class="card__bottom card__bottom-slider">
-                            <span class="card__bottom-slider__text">
-                                С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития. <br>
-Повседневная практика показывает, что постоянное информационно.
-                            </span>
-                        </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="card">
                         <div class="card__top card__top-slider">
                             <img class="card__top-slider__image" src="./images/sigmaCard.png" alt="sigmaCard">
-                        </div>
-                        <div class="card__bottom card__bottom-slider">
-                            <span class="card__bottom-slider__text">
-                                С другой стороны постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовке и реализации направлений прогрессивного развития. <br>
-Повседневная практика показывает, что постоянное информационно.
-                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" id="swiper-pagination"></div>
 
         </div>
     </div>
 </section>
 <section>
     <div class="container">
-        <div class="title">СФЕРЫ НАШЕЙ РАБОТЫ</div>
+        <div class="title" id="about">СФЕРЫ НАШЕЙ РАБОТЫ</div>
         <div class="cards">
             <div class="card card-spheres">
                 <div class="card__top card__top-spheres card__top-spheres-security">
@@ -188,7 +171,7 @@
 </section>
 <section>
     <div class="container">
-        <div class="title">
+        <div class="title" id="service">
             НАШИ УСЛУГИ
         </div>
         <div class="services">
@@ -201,9 +184,11 @@
                     </div>
                 </div>
                 <div class="card__bottom">
-                    <span>
-                        от 40.000
-                    </span>
+                    <a href="#link">
+                        <span>
+                            от 15.500
+                        </span>
+                    </a>
                 </div>
             </div>
             <div class="card">
@@ -215,9 +200,11 @@
                     </div>
                 </div>
                 <div class="card__bottom">
-                    <span>
-                        от 20.000
-                    </span>
+                    <a href="#link">
+                        <span>
+                            от 15.500
+                        </span>
+                    </a>
                 </div>
             </div>
             <div class="card">
@@ -229,9 +216,11 @@
                     </div>
                 </div>
                 <div class="card__bottom">
-                    <span>
-                        от 15.500
-                    </span>
+                    <a href="#link">
+                        <span>
+                            от 15.500
+                        </span>
+                    </a>
                 </div>
             </div>
             <div class="card">
@@ -243,9 +232,11 @@
                     </div>
                 </div>
                 <div class="card__bottom">
-                    <span>
-                        от 15.500
-                    </span>
+                    <a href="#link">
+                        <span>
+                            от 15.500
+                        </span>
+                    </a>
                 </div>
             </div>
             <div class="card">
@@ -257,9 +248,11 @@
                     </div>
                 </div>
                 <div class="card__bottom">
-                    <span>
-                        СУММА
-                    </span>
+                    <a href="#link">
+                        <span>
+                            от 15.500
+                        </span>
+                    </a>
                 </div>
             </div>
             <div class="card">
@@ -271,9 +264,11 @@
                     </div>
                 </div>
                 <div class="card__bottom">
-                    <span>
-                        СУММА
-                    </span>
+                    <a href="#link">
+                        <span>
+                            от 15.500
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -284,6 +279,7 @@
         <div class="title">НАШ ОПЫТ БОЛЕЕ <span>10 ЛЕТ</span></div>
         <div class="experience">
             <img class="experience__logo" src="./images/tenYears.png" alt="">
+            <span class="more">Узнать больше?</span>
             <div class="experience__text">
                 10 лет на страже вашей безопасности <br> <br>
                 Наш профессиональный коллектив, состоящий из высококвалифицирован-<br>
@@ -313,7 +309,9 @@
         <div class="title">ОТЗЫВЫ И РЕКОМЕНДАЦИИ</div>
         <div class="reviews">
             <div class="review">
-
+                <a href="./images/sigmaCard.png" class="image-links" data-gall="gallery01">
+                    <img src="./images/sigmaCard.png" alt="alt" class="review_image">
+                </a>
             </div>
             <div class="review">
 
@@ -345,7 +343,8 @@
             НАМ ДОВЕРЯЮТ
         </div>
         <div class="companies">
-            <div class="company"></div>
+            <div class="company">
+            </div>
             <div class="company"></div>
             <div class="company"></div>
             <div class="company"></div>
@@ -358,21 +357,22 @@
 </section>
 <section>
     <div class="container">
-        <button class="request">ЗАПОЛНИТЬ ЗАЯВКУ</button>
+        <button class="request" id="link">ЗАПОЛНИТЬ ЗАЯВКУ</button>
     </div>
 </section>
 <section>
     <div class="container">
         <div class="map">
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Afd6e2a951be2ba8658c6fbb14744336ec86bb51f471399fb388e74f3fdcb2823&amp;source=constructor" width="380" height="240" frameborder="0"></iframe>\
-            <div class="map__text">
+            <div class="map__text" id="contacts">
                 <p>контакты</p>
-                <span>+7 900 000-00-00</span><br>
-                <span>oo-sigma@ya.ru</span><br>
+                <span><a href="tel:+79630960507">+7 963 096-05-07</a></span><br>
+                <span><a href="mailto:mail@htmlacademy.ru">oo-sigma@ya.ru</a></span><br>
             </div>
         </div>
     </div>
 </section>
 <script src="lib/swiper/swiper.min.js"></script>
+<script src="lib/venobox/venobox.min.js"></script>
 </body>
 </html>

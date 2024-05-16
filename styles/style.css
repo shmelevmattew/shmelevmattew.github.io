@@ -15,6 +15,10 @@
 body{
    background: #DBDBDB;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 .container{
     margin: 0 180px;
 }
@@ -25,7 +29,7 @@ body{
     background: #EBEBEB;
     padding: 25px;
     margin-top: 30px;
-    border-radius: 40px;
+    border-radius: 20px;
 }
 .logo-header{
     height: 37px;
@@ -64,10 +68,10 @@ body{
     padding-bottom: 30px;
 }
 .card__top{
-    border-radius: 40px 40px 0 0;
+    border-radius: 20px 20px 0 0;
 }
 .card__bottom{
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 20px 20px;
     background: #EBEBEB;
 }
 .card__bottom-slider__text{
@@ -75,14 +79,13 @@ body{
     line-height: 12px;
 }
 .card__top-slider{
-    width: 90%;
-    background: #3B93B7;
-    height: 70%;
+    width: 99%;
+    height: 100%;
 }
 .card__top-slider__image{
     width: 100%;
     height: 100%;
-    border-radius: 40px 40px 0 0;
+    border-radius: 20px;
 }
 .card__bottom-slider{
     width: 90%;
@@ -157,7 +160,7 @@ body{
     width: 150px;
     height: 100%;
     background: #3B93B7;
-    border-radius: 40px 0 0 40px;
+    border-radius: 20px 0 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -172,7 +175,7 @@ body{
     justify-content: center;
     background: #EBEBEB;
     height: 100%;
-    border-radius: 0 40px 40px 0;
+    border-radius: 0 20px 20px 0;
 
     font-weight: 700;
     font-size: 20px;
@@ -256,8 +259,13 @@ body{
 .review{
     width: 210px;
     height: 320px;
-    border-radius: 40px;
+    border-radius: 20px;
     background: #B3B3B3;
+}
+.review_image{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
 }
 .companies{
     display: flex;
@@ -269,14 +277,14 @@ body{
 }
 .company{
     background: #F2F2F2;
-    border-radius: 40px;
+    border-radius: 20px;
     height: 200px;
     width: 200px;
 }
 .request{
     width: 100%;
     height: 200px;
-    border-radius: 60px;
+    border-radius: 20px;
     border: none;
     background: #3B93B7;
     color: white;
@@ -349,7 +357,7 @@ body{
 
 .menu-items {
     order: 2;
-    display: flex;
+    display: none;
 }
 
 .menu-items li {
@@ -376,7 +384,12 @@ body{
     font-size: 2.3rem;
     margin-bottom: 0.5rem;
 }
-
+.more{
+    font-size: 18px;
+    font-weight: bold;
+    color: #3B93B7;
+    display: none;
+}
 
 @media (max-width: 768px) {
     .header{
@@ -444,6 +457,9 @@ body{
     .card__top-slider__image{
         border-radius: 0px;
     }
+    .title{
+        margin-top: 100px;
+    }
 }
 @media (max-width: 1024px) {
     .header{
@@ -496,8 +512,9 @@ body{
     .services .card .card__top p {
         font-size: 13px;
     }
-}
-@media (max-width: 768px) {
+    .menu-items {
+        display: flex;
+    }
     .navbar {
         opacity: 0.95;
     }
@@ -579,13 +596,6 @@ body{
         font-weight: 500;
     }
 
-    .logo {
-        position: absolute;
-        top: 5px;
-        right: 15px;
-        font-size: 2rem;
-    }
-
     .navbar-container input[type="checkbox"]:checked ~ .menu-items {
         transform: translateX(0);
     }
@@ -600,6 +610,36 @@ body{
 
     .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
         transform: rotate(-35deg);
+    }
+    .review{
+        width: 123px;
+        height: 200px;
+    }
+    .companies{
+        gap: 50px;
+    }
+    .company{
+        width: 110px;
+        height: 110px;
+        border-radius: 20px;
+    }
+    .experience__text{
+        display: none;
+    }
+    .more{
+        display: block;
+    }
+    .visible{
+        display: block !important;
+    }
+}
+@media (max-width: 768px) {
+
+    .logo {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        font-size: 2rem;
     }
 
     /* ......./ food /......... */
@@ -687,4 +727,64 @@ body{
     .showcase-area {
         height: 50vmax;
     }
+}
+@media (min-width: 1440px) {
+    .advantages{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 40px;
+        grid-row-gap: 40px;
+    }
+    .advantage{
+        width: 100%;
+    }
+    .services{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 70px;
+        grid-row-gap: 40px;
+    }
+    .services .card {
+        width: 100%;
+    }
+    .reviews{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 60px;
+        justify-items: center;
+    }
+    .companies{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 60px;
+        justify-items: center;
+    }
+    .card-spheres{
+        height: 21vw;
+        width: 21vw;
+    }
+    .experience__text{
+        font-size: calc( (100vw - 1440px)/(1920 - 1440) * (24 - 16) + 16px);
+    }
+    .card__top-spheres{
+        font-size: calc( (100vw - 1440px)/(1920 - 1440) * (26 - 18) + 18px);
+    }
+    .card__bottom-spheres{
+        font-size: calc( (100vw - 1440px)/(1920 - 1440) * (19 - 12) + 12px);
+    }
+}
+#swiper-pagination{
+    top: 440px;
+}
+.swiper-pagination-bullet-active{
+    background: #3B93B7 !important;
+}
+.swiper-pagination-bullet{
+    background: white !important;
 }
