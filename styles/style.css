@@ -167,14 +167,14 @@ a{
 .advantage__icon-section{
     width: 150px;
     height: 100%;
-    background: #3B93B7;
+    background: linear-gradient(135deg, #82C3DE 0%, #3B93B7 100%);
     border-radius: 20px 0 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .advantage__icon{
-    width: 60%;
+    width: 85%;
 }
 .advantage__title{
     flex: 1;
@@ -185,7 +185,7 @@ a{
     height: 100%;
     border-radius: 0 20px 20px 0;
 
-    font-weight: 700;
+    font-weight: 400;
     font-size: 20px;
     text-align: center;
 }
