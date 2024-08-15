@@ -111,12 +111,12 @@ a{
     margin-bottom: 100px;
 }
 .card-spheres{
-    height: 300px;
-    width: 300px;
+    height: 380px;
+    width: 270px;
     margin-top: 25px;
 }
 .card__top-spheres{
-    height: 30%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,21 +126,29 @@ a{
     padding: 50px;
     width: 100%;
     color: white;
+    background-color: #F2F2F2;
 }
-.card__top-spheres-security{
+.card__bottom-spheres-security{
     background: #3B93B7;
 }
-.card__top-spheres-fire{
+.card__bottom-spheres-fire{
     background: #F15A24;
 }
-.card__top-spheres-digital{
+.card__bottom-spheres-digital{
     background: #1D1D1D;
 }
+.card__bottom-spheres-icons{
+    width: 250px;
+    height: 260px;
+}
 .card__bottom-spheres{
-    height: 70%;
+    height: 30%;
     width:100%;
-    font-size: 12px;
-    padding:15px 30px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 20px 0;
+    text-align: center;
 }
 .advantages{
     display: flex;
@@ -769,19 +777,7 @@ a{
         grid-row-gap: 60px;
         justify-items: center;
     }
-    .card-spheres{
-        height: 21vw;
-        width: 21vw;
-    }
-    .experience__text{
-        font-size: calc( (100vw - 1440px)/(1920 - 1440) * (24 - 16) + 16px);
-    }
-    .card__top-spheres{
-        font-size: calc( (100vw - 1440px)/(1920 - 1440) * (26 - 18) + 18px);
-    }
-    .card__bottom-spheres{
-        font-size: calc( (100vw - 1440px)/(1920 - 1440) * (19 - 12) + 12px);
-    }
+
 }
 #swiper-pagination{
     top: 440px;

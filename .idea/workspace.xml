@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbef567f-53a0-4a2b-b760-5983b571405d" name="Changes" comment="link">
+      <change afterPath="$PROJECT_DIR$/images/shield.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
@@ -57,6 +58,7 @@
       <recent name="C:\Users\Mattew\Desktop\sigma\src\images\advantages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\New\Desktop\sigma]\shmelevmattew.github.io\images" />
       <recent name="C:\Users\New\Desktop\sigma\src\lib\venobox" />
       <recent name="C:\Users\New\Desktop\sigma\src\lib\swiper" />
       <recent name="C:\Users\Mattew\Desktop\sigma\src\fonts" />
@@ -96,6 +98,7 @@
       <workItem from="1715860078421" duration="10151000" />
       <workItem from="1715936456319" duration="843000" />
       <workItem from="1715949714186" duration="417000" />
+      <workItem from="1723709694870" duration="1229000" />
     </task>
     <task id="LOCAL-00001" summary="fix text">
       <created>1715936805414</created>
