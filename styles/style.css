@@ -90,6 +90,10 @@ a{
 .slider__card-right-block{
     margin-right: 50px;
 }
+.mobile-slider-icon{
+    height: 200px;
+    display: none;
+}
 .slider__button{
     height: 50px;
     width: 250px;
@@ -610,6 +614,32 @@ a{
     }
     .logo-header{
         height: 24px;
+    }
+    .mobile-slider-icon{
+        display: block;
+    }
+    .slider__card-right-block{
+        display: none;
+    }
+    .slider__fire-card{
+        justify-content: center;
+    }
+    .slider__card-left-block{
+        width: 100%;
+    }
+    .slider__card-text-title{
+        text-align: center;
+    }
+    .slider__card-text-subtitle{
+        text-align: center;
+    }
+    .slider__button{
+        display: none;
+    }
+    .slider__card-text-block{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .card__bottom-slider{
         padding-top: 10px;
