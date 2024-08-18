@@ -60,6 +60,12 @@ a{
     width: 100%;
     height: 500px;
 }
+.blue{
+    background: #3B93B7 !important; ;
+}
+.black{
+    background-color: #1A1A1A !important;
+}
 .slider__fire-card{
     background-color: #F15A24;
     width: 100%;
