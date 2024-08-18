@@ -60,6 +60,46 @@ a{
     width: 100%;
     height: 500px;
 }
+.slider__fire-card{
+    background-color: #F15A24;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.slider__card-text-title{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+.slider__card-text-subtitle{
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: white;
+}
+.slider__card-left-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 50px 20px 50px 50px;
+}
+.slider__card-right-block{
+    margin-right: 50px;
+}
+.slider__button{
+    height: 50px;
+    width: 250px;
+    text-transform: uppercase;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+}
 .card{
     display: flex;
     align-items: center;
@@ -247,9 +287,9 @@ a{
 }
 .experience{
     display: flex;
-    align-items: center;
+    align-items: stretch;
     margin-top: 30px;
-    height: 750px;
+    min-height: 750px;
     gap: 40px;
     margin-bottom: 150px;
     background-color: #F2F2F2;
@@ -257,9 +297,10 @@ a{
 }
 .experience__text{
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    max-width: 900px;
+    width: 40%;
     padding: 40px;
-    width: 800px;
 }
 .experience__text .blue{
     color: #3B93B7;
@@ -274,7 +315,8 @@ a{
 .experience__logo-block{
     background: linear-gradient(135deg, #82C3DE 0%, #3C93B7 100%);
     border-radius: 25px 0 0 25px;
-    height: 100%;
+    min-height: 750px;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -306,18 +348,55 @@ a{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    overflow-x: scroll;
+    gap: 100px;
+    padding-bottom: 20px;
 
+}
+.companies::-webkit-scrollbar {
+    background-color: transparent;
+}
+.companies::-webkit-scrollbar-thumb {
+    background-color: #B3B3B3;
+    border-radius: 5px;
 }
 .company{
     background: #F2F2F2;
     border-radius: 20px;
-    height: 405px;
-    width: 417px;
+    height: 460px;
+    min-width: 400px;
 }
 .company__top{
     height: 70% ;
     background-color: #007CC2 ;
     border-radius: 25px 25px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    width: 100%;
+}
+.company__bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    width: 100%
+}
+.company__name{
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #212121;
+}
+.company__link{
+    color: #3B93B7;
+    font-size: 1rem;
+}
+.company-logo{
+    width: 90%;
 }
 .request{
     width: 100%;
@@ -468,10 +547,6 @@ a{
     .slider{
         margin-top: 0px;
     }
-    .experience{
-        flex-direction: column;
-        margin-top: 40px;
-    }
     .container{
         margin: 0 70px;
     }
@@ -480,9 +555,6 @@ a{
     }
     .advantages-mobile{
         display: flex;
-    }
-    .experience__logo{
-        width: 60%;
     }
     .services .card {
         width: 290px;
@@ -512,6 +584,29 @@ a{
     }
     .header__menu__item a{
         font-size: 12px;
+    }
+    .experience__text{
+        display: none;
+    }
+    .experience{
+        flex-direction: column;
+        margin-top: 40px;
+        padding-bottom: 30px;
+    }
+    .experience__logo{
+        width: 60%;
+    }
+    .experience__logo-block{
+        width: 100%;
+        max-height: 90%;
+        border-radius: 25px 25px 0 0;
+    }
+    .experience__text{
+        width: 100%;
+    }
+    .more{
+        display: block;
+        text-align: center;
     }
     .logo-header{
         height: 24px;
@@ -660,8 +755,7 @@ a{
         gap: 50px;
     }
     .company{
-        width: 110px;
-        height: 110px;
+        width: 320px;
         border-radius: 20px;
     }
     .experience__text{
@@ -669,9 +763,6 @@ a{
     }
     .more{
         display: block;
-    }
-    .visible{
-        display: block !important;
     }
 }
 
@@ -791,6 +882,9 @@ a{
     .services .card {
         width: 100%;
     }
+    .cards{
+        justify-content: space-between;
+    }
     .reviews{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -798,6 +892,9 @@ a{
         grid-column-gap: 0px;
         grid-row-gap: 60px;
         justify-items: center;
+    }
+    .experience__text{
+        font-size: 1.2rem;
     }
 }
 #swiper-pagination{
@@ -808,4 +905,7 @@ a{
 }
 .swiper-pagination-bullet{
     background: white !important;
+}
+.visible{
+    display: block !important;
 }
