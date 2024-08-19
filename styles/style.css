@@ -61,13 +61,22 @@ a{
     height: 500px;
 }
 .blueBG{
-    background: #3B93B7 !important; ;
+    background: linear-gradient(316.59deg, #82C3DE 2.62%, #3B93B7 100%) !important;}
+#blueText{
+    color: #3B93B7 !important;
+
+}
+#blackText{
+    color:#1D1D1D !important;
+}
+#orangeText{
+    color: #F15A24 !important;
 }
 .blackBG{
-    background-color: #1A1A1A !important;
+    background: linear-gradient(316.59deg, #3F3F3F 2.62%, #1D1D1D 100%) !important;
 }
 .slider__fire-card{
-    background-color: #F15A24;
+    background: linear-gradient(316.59deg, #EF9073 2.62%, #F15A24 100%);
     width: 100%;
     height: 100%;
     border-radius: 25px;
@@ -359,7 +368,7 @@ a{
     align-items: center;
     justify-content: flex-start;
     overflow-x: scroll;
-    gap: 100px;
+    gap: 50px;
     padding-bottom: 20px;
 
 }
@@ -425,6 +434,7 @@ a{
     border-radius: 20px;
     margin-bottom: 100px;
     padding: 30px;
+    align-items: center;
     display: flex;
 }
 .map iframe{
@@ -561,7 +571,7 @@ a{
         width: 285px;
     }
     .slider{
-        margin-top: 0px;
+        margin-top: 0;
     }
     .container{
         margin: 0 70px;
@@ -608,6 +618,7 @@ a{
         flex-direction: column;
         margin-top: 40px;
         padding-bottom: 30px;
+        min-height: 0;
     }
     .experience__logo{
         width: 60%;
@@ -802,6 +813,7 @@ a{
         width: 320px;
         border-radius: 20px;
     }
+
     .experience__text{
         display: none;
     }
@@ -836,6 +848,12 @@ a{
 
     .img-container {
         margin: 0;
+    }
+    .company{
+        min-width: 300px;
+    }
+    .company__logo{
+        width: 80%;
     }
 }
 
@@ -919,9 +937,6 @@ a{
     .card-spheres{
         width: 30%;
     }
-    .slider__fire-card{
-        padding: 0 200px;
-    }
     .services{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -939,7 +954,7 @@ a{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
+        grid-column-gap: 0;
         grid-row-gap: 60px;
         justify-items: center;
     }
