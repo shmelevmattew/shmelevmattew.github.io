@@ -373,7 +373,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    overflow-x: hidden;
+    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     gap: 25px;
     padding-bottom: 20px;
@@ -387,8 +387,7 @@ a{
     background-color: transparent;
 }
 .companies::-webkit-scrollbar-thumb {
-    background-color: #B3B3B3;
-    border-radius: 5px;
+    background-color: transparent;
 }
 .company{
     background: #F2F2F2;

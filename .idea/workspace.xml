@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbef567f-53a0-4a2b-b760-5983b571405d" name="Changes" comment="фикс текста">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/swiper/swiper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/swiper/swiper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="dbef567f-53a0-4a2b-b760-5983b571405d" name="Changes" comment="финальные фиксы" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +98,7 @@
       <workItem from="1723798950977" duration="718000" />
       <workItem from="1723870851255" duration="5397000" />
       <workItem from="1723953039695" duration="16052000" />
-      <workItem from="1724140050440" duration="4879000" />
+      <workItem from="1724140050440" duration="5208000" />
     </task>
     <task id="LOCAL-00001" summary="fix text">
       <created>1715936805414</created>
@@ -189,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1724143867152</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="финальные фиксы">
+      <created>1724145267497</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724145267497</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,6 +221,7 @@
     <MESSAGE value="1" />
     <MESSAGE value="фиксы" />
     <MESSAGE value="фикс текста" />
-    <option name="LAST_COMMIT_MESSAGE" value="фикс текста" />
+    <MESSAGE value="финальные фиксы" />
+    <option name="LAST_COMMIT_MESSAGE" value="финальные фиксы" />
   </component>
 </project>
