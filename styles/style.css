@@ -14,7 +14,7 @@
 }
 body{
    background: #DBDBDB;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
 }
 
 a{
@@ -61,9 +61,6 @@ a{
 .swiper {
     width: 100%;
     height: 500px;
-}
-.swiperSecond{
-    width: 100%;
 }
 
 .blueBG{
@@ -380,6 +377,10 @@ a{
     -webkit-overflow-scrolling: touch;
     gap: 25px;
     padding-bottom: 20px;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 
 }
 .companies::-webkit-scrollbar {
