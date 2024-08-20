@@ -14,7 +14,9 @@
 }
 body{
    background: #DBDBDB;
+    -webkit-overflow-scrolling: touch;
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -60,6 +62,10 @@ a{
     width: 100%;
     height: 500px;
 }
+.swiperSecond{
+    width: 100%;
+}
+
 .blueBG{
     background: linear-gradient(316.59deg, #82C3DE 2.62%, #3B93B7 100%) !important;}
 #blueText{
@@ -87,7 +93,7 @@ a{
 .slider__card-text-title{
     color: white;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 1.8rem;
 }
 .slider__card-text-subtitle{
@@ -244,7 +250,7 @@ a{
     height: 100%;
     border-radius: 0 20px 20px 0;
 
-    font-weight: 400;
+    font-weight: 600;
     font-size: 20px;
     text-align: center;
 }
@@ -320,13 +326,16 @@ a{
     max-width: 900px;
     width: 40%;
     padding: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .experience__text .blue{
     color: #3B93B7;
 }
 .experience__text-title{
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 .experience__logo{
     width: 80%;
@@ -367,8 +376,9 @@ a{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    overflow-x: scroll;
-    gap: 50px;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    gap: 25px;
     padding-bottom: 20px;
 
 }
@@ -384,6 +394,7 @@ a{
     border-radius: 20px;
     height: 460px;
     min-width: 400px;
+    max-width: 410px;
 }
 .company__top{
     height: 70% ;

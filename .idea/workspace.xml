@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbef567f-53a0-4a2b-b760-5983b571405d" name="Changes" comment="1">
+    <list default="true" id="dbef567f-53a0-4a2b-b760-5983b571405d" name="Changes" comment="фиксы">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/swiper/swiper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/swiper/swiper.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +102,8 @@
       <workItem from="1723709694870" duration="4557000" />
       <workItem from="1723798950977" duration="718000" />
       <workItem from="1723870851255" duration="5397000" />
-      <workItem from="1723953039695" duration="14612000" />
+      <workItem from="1723953039695" duration="16052000" />
+      <workItem from="1724140050440" duration="3632000" />
     </task>
     <task id="LOCAL-00001" summary="fix text">
       <created>1715936805414</created>
@@ -173,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1724057565553</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="фиксы">
+      <created>1724074651181</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724074651181</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +210,7 @@
     <MESSAGE value="mobile adaptation" />
     <MESSAGE value="text" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="фиксы" />
+    <option name="LAST_COMMIT_MESSAGE" value="фиксы" />
   </component>
 </project>
