@@ -103,10 +103,13 @@ a{
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 50px 20px 50px 50px;
+    padding: 50px 0px 50px 50px;
 }
 .slider__card-right-block{
     margin-right: 50px;
+}
+.slider__card-right-block img{
+    width: 330px;
 }
 .mobile-slider-icon{
     height: 200px;
