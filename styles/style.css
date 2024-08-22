@@ -550,7 +550,30 @@ a{
     margin-top: 12px;
     display: block;
 }
-
+.company__logo{
+    width:70%;
+}
+.minerals{
+    background: #0AA0AF;
+}
+.plast{
+    background: #1C59A4;
+}
+.glinka{
+    background: linear-gradient(316.59deg, #0F58A4 2.62%, #114171 100%) !important;
+}
+.minoborona{
+    background: #13377D;
+}
+.minzdrav{
+    background: #15253E;
+}
+.administration{
+    background: #D8D8D8;
+}
+.antares{
+    background: #15253E;
+}
 @media (max-width: 768px) {
     .header{
         display: none;
@@ -866,9 +889,7 @@ a{
     .company{
         min-width: 300px;
     }
-    .company__logo{
-        width: 80%;
-    }
+
 }
 
 @media (max-width: 500px) {

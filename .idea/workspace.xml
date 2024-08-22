@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbef567f-53a0-4a2b-b760-5983b571405d" name="Changes" comment="финальные фиксы" />
+    <list default="true" id="dbef567f-53a0-4a2b-b760-5983b571405d" name="Changes" comment="финальные фиксы">
+      <change afterPath="$PROJECT_DIR$/images/administraiton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/antares.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/glinka.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/lbminerals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/minerals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/minoborona.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/minzdrav.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/plast.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +67,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\New\Desktop\sigma]\shmelevmattew.github.io\images" />
+      <recent name="C:\Users\New\Desktop\sigma]\shmelevmattew.github.io\fire" />
       <recent name="C:\Users\New\Desktop\sigma\src\lib\venobox" />
       <recent name="C:\Users\New\Desktop\sigma\src\lib\swiper" />
       <recent name="C:\Users\Mattew\Desktop\sigma\src\fonts" />
@@ -98,7 +111,7 @@
       <workItem from="1723798950977" duration="718000" />
       <workItem from="1723870851255" duration="5397000" />
       <workItem from="1723953039695" duration="16052000" />
-      <workItem from="1724140050440" duration="5958000" />
+      <workItem from="1724140050440" duration="7435000" />
     </task>
     <task id="LOCAL-00001" summary="fix text">
       <created>1715936805414</created>
@@ -198,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1724145454870</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="финальные фиксы">
+      <created>1724313184799</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1724313184800</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
