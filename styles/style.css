@@ -394,7 +394,7 @@ a{
 }
 .company{
     background: #F2F2F2;
-    border-radius: 20px;
+    border-radius: 25px;
     height: 460px;
     min-width: 400px;
     max-width: 410px;
@@ -687,6 +687,7 @@ a{
     }
     .slider__card-left-block{
         width: 100%;
+        padding: 0;
     }
     .slider__card-text-title{
         text-align: center;
@@ -848,7 +849,7 @@ a{
     }
     .company{
         width: 320px;
-        border-radius: 20px;
+
     }
 
     .experience__text{
