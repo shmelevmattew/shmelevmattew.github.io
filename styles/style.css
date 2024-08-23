@@ -423,6 +423,7 @@ a{
     font-weight: 700;
     font-size: 1.2rem;
     color: #212121;
+    text-align: center;
 }
 .company__link{
     color: #3B93B7;
@@ -574,6 +575,10 @@ a{
 .antares{
     background: #15253E;
 }
+.administrationSizes{
+    height: 80%;
+    width: 50%;
+}
 @media (max-width: 768px) {
     .header{
         display: none;
@@ -635,6 +640,13 @@ a{
     }
     .title{
         margin-top: 100px;
+    }
+    .administrationSizes{
+        height: 60%;
+        width: 50%;
+    }
+    .company__name{
+        text-align: center;
     }
 }
 @media (max-width: 1024px) {
