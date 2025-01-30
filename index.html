@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>FSD Презентация</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/solarized.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+
+	<body style="font-family: 'Roboto', sans-serif">
+		<section class="reveal">
+			<section class="slides">
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Автор</p>
+							<h3 style="text-transform: none">Шмелев Матвей Вячесловович</h3>
+						</div>
+
+						<div style="display:flex; align-items: center; gap:50px; justify-content: space-between;">
+							<div style="text-align: left">
+								<p>
+									Оператор ЭВМ 4 разряда
+								</p>
+								<p>
+									Фронтенд-разработчик
+								</p>
+							</div>
+							<img src="images/myphoto.jpg" style="width: 350px;" alt="">
+						</div>
+					</div>
+				</section>
+
+				<section data-background-color="white">
+					<h2>Feature-Sliced Design</h2>
+					<p>Архитектурная методология для фронтенд проектов</p>
+				</section>
+
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Изоляция</h3>
+						</div>
+
+						<div style="display:flex; align-items: center">
+							<div style="text-align: left">
+								<p>
+									<b>Cohesion</b> - внутренняя связность модуля ("связанность")
+								</p>
+								<p>
+									<b>Coupling</b> - внешняя связность между модулями ("зацепленность")
+								</p>
+							</div>
+							<img src="images/ideal.jpg" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Public API</h3>
+						</div>
+
+						<div style="display:flex; flex-direction: column">
+							<h4>Цели</h4>
+							<ol>
+								<li>Приложение должно быть защищено от изменений внутренней структуры отдельных модулей</li>
+								<li>Переработка внутренней структуры модуля не должна затрагивать другие модули</li>
+								<li>Существенные изменения поведения модуля должны быть легко определяемы</li>
+							</ol>
+							<p style="text-align: left">Достичь этих целей позволяет введение публичного интерфейса (Public API), представляющего собой единую точку доступа к возможностям модуля и определяющего "контракт" взаимодействия модуля с внешним миром.</p>
+						</div>
+						<p style="padding: 16px; background: rgb(238, 249, 253); font-size: 16px; color: rgb(25, 60, 71); border-radius: 12px;">Структура сущности должна иметь единую точку входа, предоставляющую публичный интерфейс</p>
+						<pre style="border-radius: 12px; margin: 0; width: 100%;" >
+						   └── auth-form/ 	# Внутренняя структура фичи
+							├── ui/ 	#
+							├── model/ 	#
+							├── {...}/ 	#
+							└── index.ts  	# Энтрипоинт фичи с ее публичным API
+						</pre>
+					</div>
+				</section>
+
+				<section style="height: 100%" data-background-color="white" data-transition="slide-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Public API</h3>
+						</div>
+
+						<div style="display:flex; flex-direction: column">
+							<h4>Требования к публичному API</h4>
+
+							<div style="text-align: left">
+								<p>Контроль доступа</p>
+								<ul style="font-size: 0.6em; margin-top: 0.2em">
+									<li>Другие части приложения могут использовать только те сущности модуля, которые представлены в публичном интерфейсе.</li>
+									<li>Внутренняя часть модуля за пределами публичного интерфейса доступны только самому модулю.</li>
+								</ul>
+							</div>
+						</div>
+
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px;">
+							<p style="font-size: 0.7em; grid-column: 1 / -1">Примеры</p>
+
+							<div style="text-align: left">
+								<span style="color: tomato; font-size: 0.6em;">Плохо: <span style="color: rgb(101, 123, 131);">идет обращение напрямую к внутренним частям модуля, минуя публичный интерфейс доступа - опасно, особенно при рефакторинге модуля</span></span>
+								<pre style="color: tomato; font-size: 0.5em; margin: 16px 0 0; padding: 12px; border-radius: 12px;">- import { Form } from "features/auth-form/components/view/form"</pre>
+							</div>
+
+							<div style="text-align: left">
+								<span style="color: yellowgreen; font-size: 0.6em;">Хорошо: <span style="color: rgb(101, 123, 131);">API заранее экспортирует только нужное и разрешенное, разработчику модуля теперь нужно думать только о том, чтобы не ломать Public API при рефакторинге</span></span>
+								<pre style="color: yellowgreen; font-size: 0.5em; margin: 16px 0 0; padding: 12px; border-radius: 12px;">+ import { AuthForm } from "features/auth-form"</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Public API</h3>
+						</div>
+
+						<div style="display:flex; flex-direction: column">
+							<h4>Требования к публичному API</h4>
+
+							<div style="text-align: left">
+								<p>Устойчивость к изменениям</p>
+								<ul style="font-size: 0.6em; margin-top: 0.2em">
+									<li>Изменения, ломающие поведения модуля, должны отражаться в изменении Public API</li>
+									<li>Изменение внутренней структуры не должно приводить к изменению Public API</li>
+								</ul>
+							</div>
+						</div>
+
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px;">
+							<p style="font-size: 0.7em; grid-column: 1 / -1">Примеры</p>
+
+							<div style="text-align: left">
+								<span style="color: tomato; font-size: 0.6em;">Плохо: <span style="color: rgb(101, 123, 131);">перемещение или переименование этого компонента внутри фичи приведет к необходимости рефакторить импорты во всех местах использования компонента.</span></span>
+								<pre style="color: tomato; font-size: 0.5em; margin: 16px 0 0; padding: 12px; border-radius: 12px;">- import { Form } from "features/auth-form/ui/form"</pre>
+							</div>
+
+							<div style="text-align: left">
+								<span style="color: yellowgreen; font-size: 0.6em;">Хорошо: <span style="color: rgb(101, 123, 131);">интерфейс фичи не отображает её внутреннюю структуру, внешние "пользователи" фичи не пострадают от перемещения или переименования компонента внутри фичи</span></span>
+								<pre style="color: yellowgreen; font-size: 0.5em; margin: 16px 0 0; padding: 12px; border-radius: 12px;">+ import { AuthForm } from "features/auth-form"</pre>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in slide-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Public API</h3>
+						</div>
+
+						<div style="display:flex; flex-direction: column">
+							<h4>Требования к публичному API</h4>
+
+							<div style="text-align: left">
+								<p>Интегрируемость</p>
+								<ul style="font-size: 0.6em; margin-top: 0.2em">
+									<li>Должен быть удобен для использования остальными частями приложения, в частности, решать проблему коллизии имен</li>
+								</ul>
+							</div>
+						</div>
+
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px;">
+							<p style="font-size: 0.7em; grid-column: 1 / -1">Примеры</p>
+
+							<div style="text-align: left">
+								<span style="color: tomato; font-size: 0.6em;">Плохо: <span style="color: rgb(101, 123, 131);">будет коллизия имен</span></span>
+								<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 16px 0 0;">
+									<pre style="width: 100%; overflow: hidden; font-size: 0.4em; padding: 12px; border-radius: 12px; margin: 0;">
+//- features/auth-form/index.ts
+
+export { Form } from "./ui"
+export * as model from "./model"
+									</pre>
+									<pre style="width: 100%; overflow: hidden;font-size: 0.4em; padding: 12px; border-radius: 12px; margin: 0;">
+//- features/post-form/index.ts
+
+export { Form } from "./ui"
+export * as model from "./model"
+									</pre>
+									<pre style="width: 100%; grid-column: 1/-1; overflow: hidden; color: tomato; font-size: 0.4em; padding: 12px; border-radius: 12px; margin: 0;">
+- import { Form, model } from "features/auth-form"
+- import { Form, model } from "features/post-form"
+									</pre>
+								</div>
+
+							</div>
+
+							<div style="text-align: left">
+								<span style="color: yellowgreen; font-size: 0.6em;">Хорошо: <span style="color: rgb(101, 123, 131);">коллизия решена на уровне публичного интерфейса</span></span>
+								<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 16px 0 0;">
+									<pre style="width: 100%; overflow: hidden; font-size: 0.4em; padding: 12px; border-radius: 12px; margin: 0;">
+//- features/auth-form/index.ts
+
+export { Form as AuthForm } from "./ui"
+export * as authFormModel from "./model"
+									</pre>
+									<pre style="width: 100%; overflow: hidden;font-size: 0.4em; padding: 12px; border-radius: 12px; margin: 0;">
+//- features/post-form/index.ts
+
+export { Form as PostForm } from "./ui"
+export * as postFormModel from "./model"
+									</pre>
+									<pre style="width: 100%; grid-column: 1/-1; overflow: hidden; color: yellowgreen; font-size: 0.4em; padding: 12px; border-radius: 12px; margin: 0;">
++ import { AuthForm, authFormModel } from "features/auth-form"
++ import { PostForm, postFormModel } from "features/post-form"
+									</pre>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Public API</h3>
+						</div>
+
+						<div style="display:flex; flex-direction: column">
+							<h4>О реэкспортах</h4>
+
+							<p style="font-size: 0.6em; text-align: left">В JavaScript публичный интерфейс модуля создается с помощью реэкспорта сущностей изнутри модуля в index файле:</p>
+
+							<pre style="font-size: 0.5em; padding: 12px; border-radius: 12px; margin: 16px 0 0;">
+//- **/**/index.ts
+
+export { Form as AuthForm } from "./ui"
+export * as authModel from "./model"
+							</pre>
+
+							<h5 style="font-size: 0.6em; text-align: left; margin-top: 32px;">Недостатки</h5>
+							<ul style="font-size: 0.5em">
+								<li>В большинстве популярных бандлеров из-за реэкспортов хуже работает код-сплиттинг, т.к. <a href="https://webpack.js.org/guides/tree-shaking/" target="_blank">tree-shaking</a> при таком подходе может безопасно отбросить только модуль целиком, но не его часть.<br>Например, импорт authModel в модели страницы приведет к попаданию компонента AuthForm в чанк этой страницы, даже если этот компонент там не используется.</li>
+								<li style="margin-top: 16px">Как следствие, инициализация чанка становится дороже, т.к. браузер должен обработать все модули в нем, в том числе и те, что попали в бандл "за компанию"</li>
+							</ul>
+
+							<h5 style="font-size: 0.6em; text-align: left; margin-top: 32px;">Возможные пути решения</h5>
+							<ul style="font-size: 0.5em">
+								<li>webpack позволяет отметить файлы-реэкспорты как <a href="https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free" target="_blank">side effects free</a> - это разрешает webpack использовать более агрессивные оптимизации при работе с таким файлом</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Общее</h3>
+						</div>
+
+						<p style="text-align: left">Проект на FSD состоит из <b>слоев</b> (layers), каждый слой состоит из <b>слайсов</b> (slices) и каждый слайс состоит из <b>сегментов</b> (segments).</p>
+
+						<div style="text-align: center; height: 533px;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/concept.jpg" alt="">
+						</div>
+					</div>
+				</section>
+
+				<section style="height: 100%" data-background-color="white" data-transition="slide-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Слои и ответственность</h3>
+						</div>
+
+						<div style="margin-top: 64px;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/layers.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in slide-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Концепции</p>
+							<h3 style="text-transform: none">Слои и ответственность</h3>
+						</div>
+
+						<div style="margin-top: 64px;">
+							<h4>Правила</h4>
+							<div style="display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px;">
+								<ul style="display: flex; flex-direction: column; row-gap: 24px;">
+									<li style="font-size: 0.5em; text-align: left;">
+										Каждый слой располагается только на самом верхнем уровне, и не может встречаться еще раз на другом уровне вложенности
+
+										<div style="margin-top: 12px; display: grid; grid-template-columns: repeat(2, 1fr); justify-content: space-between; column-gap: 24px;">
+											<span style="color: tomato; font-size: 0.8em;">Плохо:</span>
+											<span style="color: yellowgreen; font-size: 0.8em;">Хорошо:</span>
+											<pre style="width: 100%; overflow: hidden; font-size: 0.8em; margin: 16px 0 0; padding: 12px; border-radius: 12px;">
+- pages/features/..
+- features/entities/..
+											</pre>
+											<pre style="width: 100%; overflow: hidden; font-size: 0.8em; margin: 16px 0 0; padding: 12px; border-radius: 12px;">
++ pages/**
++ features/**
+											</pre>
+										</div>
+									</li>
+
+									<li style="font-size: 0.5em; text-align: left;">
+										Каждый слой может использовать (импортировать) только нижележащие слои
+									</li>
+
+									<li style="font-size: 0.5em; text-align: left;">
+										Чем выше расположен слой, тем выше уровень его ответственности и знаний о других слоях (сверху-вниз)
+
+										<pre style="width: 100%; text-align:center; overflow: hidden; font-size: 0.8em; margin: 8px 0 0; padding: 12px; border-radius: 12px;">app > (processes) > pages > (widgets) > features > entities > shared</pre>
+									</li>
+
+									<li style="font-size: 0.5em; text-align: left;">
+										Чем ниже расположен слой - тем он больше используется в верхних слоях, а значит и тем больше опасности вносить в него изменения (снизу вверх)
+
+										<pre style="width: 100%; text-align:center; overflow: hidden; font-size: 0.8em; margin: 8px 0 0; padding: 12px; border-radius: 12px;">shared  > entities > features > (widgets) > pages > (processes) > app</pre>
+									</li>
+								</ul>
+								<table style="display: block; align-self: flex-start; border: 1px solid #dadde1; border-collapse: collapse; font-size: 0.5em;">
+									<thead>
+									<tr>
+										<th style="text-align: center; border: 1px solid #dadde1; background: #f7f7f7; color: black; font-weight: 400;">Слой</th>
+										<th style="text-align: center; border: 1px solid #dadde1; background: #f7f7f7; color: black; font-weight: 400;">Что использует</th>
+										<th style="text-align: center; border: 1px solid #dadde1; background: #f7f7f7; color: black; font-weight: 400;">Где используется</th>
+									</tr>
+									</thead>
+									<tbody style="font-size: 0.75em">
+									<tr>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">app</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`shared`, `entities`, `features`, `widgets`, `pages`, `processes`</span>
+										</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">-</td>
+									</tr>
+									<tr>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">processes</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`shared`, `entities`, `features`, `widgets`, `pages`</span>
+										</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`app`</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">pages</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`shared`, `entities`, `features`, `widgets`</span>
+										</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`processes`, `app`</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">widgets</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`shared`, `entities`, `features`</span>
+										</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`pages`, `processes`, `app`</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">features</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`shared`, `entities`</span>
+										</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`widgets`, `pages`, `processes`, `app`</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">entities</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`shared`</span>
+										</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`features`, `widgets`, `pages`, `processes`, `app`</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">shared</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;">-</td>
+										<td style="text-align: center; border: 1px solid #dadde1; background: #ffffff; color: rgb(101, 123, 131); font-weight: 400; vertical-align: middle;" data-markdown>
+											<span data-template>`entities`, `features`, `widgets`, `pages`, `processes`, `app`</span>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="slide-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Слои</h3>
+						</div>
+
+						<div style="border: 1px solid rgb(211, 213, 216); border-radius: 16px; width: fit-content; margin: 0 auto;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/shared.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Слои</h3>
+						</div>
+
+						<div style="border: 1px solid rgb(211, 213, 216); border-radius: 16px; width: fit-content; margin: 0 auto;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/entities.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Слои</h3>
+						</div>
+
+						<div style="border: 1px solid rgb(211, 213, 216); border-radius: 16px; width: fit-content; margin: 0 auto;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/features.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Слои</h3>
+						</div>
+
+						<div style="border: 1px solid rgb(211, 213, 216); border-radius: 16px; width: fit-content; margin: 0 auto;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/widgets.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Слои</h3>
+						</div>
+
+						<div style="border: 1px solid rgb(211, 213, 216); border-radius: 16px; width: fit-content; margin: 0 auto;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/pages.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Слои</h3>
+						</div>
+
+						<div style="border: 1px solid rgb(211, 213, 216); border-radius: 16px; width: fit-content; margin: 0 auto;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/processes.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in slide-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Слои</h3>
+						</div>
+
+						<div style="border: 1px solid rgb(211, 213, 216); border-radius: 16px; width: fit-content; margin: 0 auto;">
+							<img style="object-fit: contain; height: auto; max-width: 100%" src="images/app.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="slide-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Структура <span style="color: #808080">Слоев</span></h3>
+						</div>
+
+						<pre style="overflow: hidden; font-size: 0.5em; padding: 12px; border-radius: 12px; margin: 16px 0 0;">
+└── src/
+	├── app/                    # Инициализирующая логика приложения
+	├── processes/              # (Опц.) Процессы приложения, протекающие над страницами
+	├── pages/                  # Страницы приложения
+	├── widgets/                # Самостоятельные и полноценные блоки для страниц
+	├── features/               # (Опц.) Обрабатываемые пользовательские сценарии
+	├── entities/               # (Опц.) Бизнес-сущности, которыми оперирует предметная область
+	└── shared/                 # Переиспользуемые модули, без привязки к бизнес-логике
+						</pre>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Структура <span style="color: #808080">Слайсов</span></h3>
+						</div>
+
+						<pre style="overflow: hidden; font-size: 0.4em; padding: 12px; border-radius: 12px; margin: 16px 0 0;">
+├── app/
+|   # Не имеет конкретных слайсов,
+|   # Т.к. там содержится мета-логика над проектом и его инициализации
+├── processes/
+|   # Слайсы для реализации процессов на страницах
+|   ├── payment
+|   ├── auth
+|   ├── quick-tour
+|   └── ...
+├── pages/
+|   # Слайсы для реализации страниц приложения
+|   # При этом, в силу специфики роутинга - могут вкладываться друг в друга
+|   ├── profile
+|   ├── sign-up
+|   ├── feed
+|   └── ...
+├── widgets/
+|   # Слайсы для реализации самостоятельных блоков страниц
+|   ├── header
+|   ├── feed
+|   └── ...
+├── features/
+|   # Слайсы для реализации пользовательских сценариев на страницах
+|   ├── auth-by-phone
+|   ├── inline-post
+|   └── ...
+├── entities/
+|   # Слайсы бизнес-сущностей для реализации более сложной БЛ
+|   ├── viewer
+|   ├── posts
+|   ├── i18n
+|   └── ...
+├── shared/
+|    # Не имеет конкретных слайсов
+|    # Представляет собой скорее набор общеиспользуемых сегментов, без привязки к БЛ
+						</pre>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in slide-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Применение</p>
+							<h3 style="text-transform: none">Структура <span style="color: #808080">Сегментов</span></h3>
+						</div>
+
+						<pre style="overflow: hidden; font-size: 0.5em; padding: 12px; border-radius: 12px; margin: 16px 0 0;">
+{layer}/
+	├── {slice}/
+	|   ├── ui/                     # UI-логика (components, ui-widgets, ...)
+	|   ├── model/                  # Бизнес-логика (store, actions, effects, reducers, ...)
+	|   ├── lib/                    # Инфраструктурная логика (utils/helpers)
+	|   ├── config*/                # Конфигурация (проекта / слайса)
+	|   └── api*/                   # Логика запросов к API (api instances, requests, ...)
+						</pre>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="slide-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Внедрение</p>
+							<h3 style="text-transform: none">FeatureSliced <span style="color: #7895a3">Elementary</span></h3>
+						</div>
+
+						<div>
+							<img style="border-radius: 14px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15)" src="images/elementary.jpg" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Внедрение</p>
+							<h3 style="text-transform: none">FeatureSliced <span style="color: #7895a3">Beginner</span></h3>
+						</div>
+
+						<div>
+							<img style="border-radius: 14px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15)" src="images/beginner.jpg" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in fade-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Внедрение</p>
+							<h3 style="text-transform: none">FeatureSliced <span style="color: #7895a3">Intermediate</span></h3>
+						</div>
+
+						<div>
+							<img style="border-radius: 14px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15)" src="images/intermediate.jpg" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white" data-transition="fade-in slide-out">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Внедрение</p>
+							<h3 style="text-transform: none">FeatureSliced <span style="color: #b98e65">Advanced</span></h3>
+						</div>
+
+						<div>
+							<img style="border-radius: 14px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15)" src="images/advanced.jpg" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Внедрение</p>
+							<h3 style="text-transform: none">Choose your fighter</h3>
+						</div>
+
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px; justify-items: center;">
+							<img style="border-radius: 14px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); object-fit: contain; height: auto; max-width: 100%; justify-self: flex-end" src="images/legacy.jpg" alt="">
+							<img style="border-radius: 14px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); object-fit: contain; height: auto; max-width: 100%; justify-self: flex-start" src="images/new.jpg" alt="">
+						</div>
+					</div>
+				</section>
+
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Что получаем</p>
+							<h3 style="text-transform: none">Преимущества</h3>
+						</div>
+
+						<div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 32px; row-gap: 64px; justify-items: center; margin-top: 64px;">
+							<div style="font-size: 0.5em; display: flex; flex-direction: column; justify-content: center; row-gap: 24px;">
+								<svg style="align-self: center; width: 80px; height: 80px;" viewBox="64 64 896 896" focusable="false" data-icon="eye" width="80px" height="80px" fill="currentColor" aria-hidden="true"><path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg>
+								<b style="margin: 0">Явная бизнес-логика</b>
+								<p style="margin: 0">Архитектуру <b>легко осваивать</b>, поскольку она состоит из доменных модулей</p>
+							</div>
+							<div style="font-size: 0.5em; display: flex; flex-direction: column; justify-content: center; row-gap: 24px;">
+								<svg style="align-self: center; width: 80px; height: 80px;" viewBox="64 64 896 896" focusable="false" data-icon="login" width="1em" height="1em" fill="currentColor" aria-hidden="true"><defs><style></style></defs><path d="M521.7 82c-152.5-.4-286.7 78.5-363.4 197.7-3.4 5.3.4 12.3 6.7 12.3h70.3c4.8 0 9.3-2.1 12.3-5.8 7-8.5 14.5-16.7 22.4-24.5 32.6-32.5 70.5-58.1 112.7-75.9 43.6-18.4 90-27.8 137.9-27.8 47.9 0 94.3 9.3 137.9 27.8 42.2 17.8 80.1 43.4 112.7 75.9 32.6 32.5 58.1 70.4 76 112.5C865.7 417.8 875 464.1 875 512c0 47.9-9.4 94.2-27.8 137.8-17.8 42.1-43.4 80-76 112.5s-70.5 58.1-112.7 75.9A352.8 352.8 0 01520.6 866c-47.9 0-94.3-9.4-137.9-27.8A353.84 353.84 0 01270 762.3c-7.9-7.9-15.3-16.1-22.4-24.5-3-3.7-7.6-5.8-12.3-5.8H165c-6.3 0-10.2 7-6.7 12.3C234.9 863.2 368.5 942 520.6 942c236.2 0 428-190.1 430.4-425.6C953.4 277.1 761.3 82.6 521.7 82zM395.02 624v-76h-314c-4.4 0-8-3.6-8-8v-56c0-4.4 3.6-8 8-8h314v-76c0-6.7 7.8-10.5 13-6.3l141.9 112a8 8 0 010 12.6l-141.9 112c-5.2 4.1-13 .4-13-6.3z"></path></svg>
+								<b style="margin: 0">Адаптивность</b>
+								<p style="margin: 0">Компоненты архитектуры можно <b>гибко заменять, добавлять под новые условия</b></p>
+							</div>
+							<div style="font-size: 0.5em; display: flex; flex-direction: column; justify-content: center; row-gap: 24px;">
+								<svg style="align-self: center; width: 80px; height: 80px;" viewBox="64 64 896 896" focusable="false" data-icon="file-protect" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M644.7 669.2a7.92 7.92 0 00-6.5-3.3H594c-6.5 0-10.3 7.4-6.5 12.7l73.8 102.1c3.2 4.4 9.7 4.4 12.9 0l114.2-158c3.8-5.3 0-12.7-6.5-12.7h-44.3c-2.6 0-5 1.2-6.5 3.3l-63.5 87.8-22.9-31.9zM688 306v-48c0-4.4-3.6-8-8-8H296c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8zm-392 88c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H296zm184 458H208V148h560v296c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V108c0-17.7-14.3-32-32-32H168c-17.7 0-32 14.3-32 32v784c0 17.7 14.3 32 32 32h312c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm402.6-320.8l-192-66.7c-.9-.3-1.7-.4-2.6-.4s-1.8.1-2.6.4l-192 66.7a7.96 7.96 0 00-5.4 7.5v251.1c0 2.5 1.1 4.8 3.1 6.3l192 150.2c1.4 1.1 3.2 1.7 4.9 1.7s3.5-.6 4.9-1.7l192-150.2c1.9-1.5 3.1-3.8 3.1-6.3V538.7c0-3.4-2.2-6.4-5.4-7.5zM826 763.7L688 871.6 550 763.7V577l138-48 138 48v186.7z"></path></svg>
+								<b style="margin: 0">Стандартизация</b>
+								<p style="margin: 0">Стандартизированное проектирование архитектуры позволяет быстрее найти подходящих людей в команду</p>
+							</div>
+							<div style="font-size: 0.5em; display: flex; flex-direction: column; justify-content: center; row-gap: 24px;">
+								<svg style="align-self: center; width: 80px; height: 80px;" viewBox="64 64 896 896" focusable="false" data-icon="build" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M916 210H376c-17.7 0-32 14.3-32 32v236H108c-17.7 0-32 14.3-32 32v272c0 17.7 14.3 32 32 32h540c17.7 0 32-14.3 32-32V546h236c17.7 0 32-14.3 32-32V242c0-17.7-14.3-32-32-32zm-504 68h200v200H412V278zm-68 468H144V546h200v200zm268 0H412V546h200v200zm268-268H680V278h200v200z"></path></svg>
+								<b style="margin: 0">Ясность & Контроль</b>
+								<p style="margin: 0">Контролируемые и явные связи между модулями в архитектуре без неожиданных сайд-эффектов</p>
+							</div>
+							<div style="font-size: 0.5em; display: flex; flex-direction: column; justify-content: center; row-gap: 24px;">
+								<svg style="align-self: center; width: 80px; height: 80px;" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect width="64" height="64" rx="32" fill="currentColor"/>
+									<rect y="0.499588" width="18.9993" height="18.5905" transform="matrix(0.866263 0.499588 -0.866263 0.499588 32.4035 19.25)" stroke="white"/>
+									<rect y="0.499588" width="18.9993" height="18.5905" transform="matrix(0.866263 0.499588 -0.866263 0.499588 32.4035 19.25)" stroke="white"/>
+									<rect y="0.499588" width="18.5905" height="18.5905" transform="matrix(0.866263 0.499588 -0.866263 0.499588 32.8478 24.12)" stroke="white"/>
+									<rect y="0.499588" width="18.5905" height="18.5905" transform="matrix(0.866263 0.499588 -0.866263 0.499588 32.8478 24.12)" stroke="white"/>
+									<rect x="32.3516" y="20.083" width="0.5" height="4.11373" stroke="white" stroke-width="0.5"/>
+									<rect x="48.3516" y="29.3105" width="0.5" height="4.11373" stroke="white" stroke-width="0.5"/>
+									<rect x="32.3516" y="38.5379" width="0.5" height="4.11373" stroke="white" stroke-width="0.5"/>
+									<rect x="15.3516" y="29.3105" width="0.5" height="4.11373" stroke="white" stroke-width="0.5"/>
+								</svg>
+								<b style="margin: 0">Фреймворк агностик</b>
+								<p style="margin: 0">Не зависит от технического стека проекта</p>
+							</div>
+							<div style="font-size: 0.5em; display: flex; flex-direction: column; justify-content: center; row-gap: 24px;">
+								<svg fill="currentColor" style="align-self: center; width: 80px; height: 80px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+									 width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+									<g>
+										<rect x="16" width="4" height="2"/>
+										<rect x="22" width="4" height="2"/>
+										<rect x="28" width="4" height="2"/>
+										<rect x="4" width="4" height="2"/>
+										<rect x="10" width="4" height="2"/>
+										<rect x="48" y="62" width="4" height="2"/>
+										<rect x="62" y="32" width="2" height="4"/>
+										<rect x="46" width="4" height="2"/>
+										<rect x="62" y="44" width="2" height="4"/>
+										<rect x="62" y="26" width="2" height="4"/>
+										<rect x="52" width="4" height="2"/>
+										<rect y="6" width="2" height="4"/>
+										<rect width="2" height="4"/>
+										<rect y="24" width="2" height="4"/>
+										<rect x="62" y="50" width="2" height="4"/>
+										<rect x="42" y="62" width="4" height="2"/>
+										<rect x="62" y="56" width="2" height="4"/>
+										<rect y="12" width="2" height="4"/>
+										<rect y="18" width="2" height="4"/>
+										<rect x="60" y="62" width="4" height="2"/>
+										<rect x="62" y="38" width="2" height="4"/>
+										<rect x="54" y="62" width="4" height="2"/>
+										<rect x="62" y="14" width="2" height="4"/>
+										<rect x="62" y="20" width="2" height="4"/>
+										<rect x="40" width="4" height="2"/>
+										<rect x="58" width="4" height="2"/>
+										<rect x="62" y="2" width="2" height="4"/>
+										<rect x="62" y="8" width="2" height="4"/>
+										<rect x="36" y="62" width="4" height="2"/>
+										<rect x="34" width="4" height="2"/>
+										<path d="M32,32H0v32h32V32z M30,62H2V34h28V62z"/>
+										<polygon points="41.707,23.707 56,9.414 56,18 58,18 58,7 57,6 46,6 46,8 54.586,8 40.293,22.293 	"/>
+									</g>
+								</svg>
+								<b style="margin: 0">Масштабируемость</b>
+								<p style="margin: 0">Масштабируемость архитектуры и команды для разработки</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Что получаем</p>
+							<h3 style="text-transform: none">Недостатки</h3>
+						</div>
+
+						<div style="display: flex; text-align: left; margin-top: 64px;">
+							<ul style="text-align: left">
+								<li>Выше порог входа</li>
+								<li>Требует больше осознанности</li>
+								<li>Реальная сложность "сейчас", а не "потом"</li>
+							</ul>
+
+							<img style="border-radius: 14px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); object-fit: contain; height: auto; max-width: 100%;" src="images/mem.jpg" alt="">
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Что получаем</p>
+							<h3 style="text-transform: none">А кто использует? <span style="color: #808080">Компании</span></h3>
+						</div>
+
+						<div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 32px; row-gap: 32px;">
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/yandex.svg" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/dodo.png" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/foxford.svg" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/food.svg" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/pochtatech.svg" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/kode.png" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/red-mad-robots.png" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/pmp-tech.png" alt=""></div>
+							<div><img style="object-fit: contain; height: auto; width: 100%; max-width: 100%;" src="images/uptarget.png" alt=""></div>
+						</div>
+					</div>
+				</section>
+				<section style="height: 100%" data-background-color="#0d8fce">
+					<video style="width: 100%; height: 100%" data-autoplay preload="auto">
+						<source data-src="video/end.mp4">
+					</video>
+				</section>
+			</section>
+		</section>
+
+		<script src="dist/reveal.js"></script>
+	</body>
+</html>
