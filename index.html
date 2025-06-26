@@ -768,6 +768,405 @@ export * as authModel from "./model"
 						</div>
 					</div>
 				</section>
+				<section style="height: 100%" data-background-color="white">
+					<div>
+						<div style="text-align: left">
+							<p style="font-size: 18px">Практика</p>
+							<h3 style="text-transform: none">Интерактивный пример</h3>
+							<p style="font-size: 14px; color: #666; margin-bottom: 20px;">Кликните на элементы интерфейса, чтобы узнать, в какую папку FSD их поместить</p>
+						</div>
+
+						<div style="display: flex; gap: 30px; align-items: flex-start;">
+							<!-- Мокап интерфейса -->
+							<div style="flex: 1.2; border: 1px solid #e1e5e9; border-radius: 16px; overflow: hidden; background: white; box-shadow: 0 8px 25px rgba(0,0,0,0.08); position: relative;">
+								<!-- Хедер -->
+								<div id="header" class="clickable-element" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 20px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: space-between;">
+									<div style="display: flex; align-items: center; gap: 24px;">
+										<div style="font-weight: bold; font-size: 18px;">TechStore</div>
+										<nav style="display: flex; gap: 20px; font-size: 14px;">
+											<a href="#" style="color: white; text-decoration: none; opacity: 0.9;">Главная</a>
+											<a href="#" style="color: white; text-decoration: none; opacity: 0.9;">Каталог</a>
+											<a href="#" style="color: white; text-decoration: none; opacity: 0.9;">О нас</a>
+										</nav>
+									</div>
+									<div style="display: flex; align-items: center; gap: 16px;">
+										<div style="background: rgba(255,255,255,0.2); padding: 8px 12px; border-radius: 20px; font-size: 14px;">🔍 Поиск</div>
+										<div style="background: rgba(255,255,255,0.2); padding: 8px 12px; border-radius: 20px; font-size: 14px;">🛒 2</div>
+										<div style="background: rgba(255,255,255,0.2); padding: 8px 12px; border-radius: 20px; font-size: 14px;">👤</div>
+									</div>
+								</div>
+
+								<div style="padding: 24px;">
+									<!-- Баннер -->
+									<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 12px; padding: 20px; margin-bottom: 24px; color: white; text-align: center;">
+										<div style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">Черная Пятница!</div>
+										<div style="font-size: 14px; opacity: 0.9;">Скидки до 50% на все товары</div>
+									</div>
+
+									<!-- Товары -->
+									<div style="margin-bottom: 16px;">
+										<h3 style="margin: 0 0 16px 0; color: #2d3748; font-size: 18px;">Популярные товары</h3>
+									</div>
+									
+									<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+										<div id="product-card" class="clickable-element" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white; cursor: pointer; transition: all 0.3s; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+											<div style="background: linear-gradient(45deg, #f7fafc, #edf2f7); height: 80px; display: flex; align-items: center; justify-content: center; font-size: 24px; position: relative;">
+												📱
+												<div id="ui-badge" class="clickable-element" style="position: absolute; top: 8px; right: 8px; background: #e53e3e; color: white; padding: 2px 6px; border-radius: 6px; font-size: 10px; cursor: pointer; transition: all 0.3s;">NEW</div>
+											</div>
+											<div style="padding: 12px;">
+												<div style="font-weight: 600; font-size: 14px; color: #2d3748; margin-bottom: 4px;">iPhone 15 Pro</div>
+												<div style="color: #718096; font-size: 12px; margin-bottom: 8px;">256GB, Titanium</div>
+												<div style="display: flex; align-items: center; justify-content: space-between;">
+													<div style="font-weight: bold; color: #2d3748;">$999</div>
+													<div style="color: #a0aec0; text-decoration: line-through; font-size: 12px;">$1199</div>
+												</div>
+												<button id="add-to-cart" class="clickable-element" style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; border: none; padding: 8px 12px; border-radius: 8px; margin-top: 8px; cursor: pointer; transition: all 0.3s; width: 100%; font-size: 12px; font-weight: 500;">В корзину</button>
+											</div>
+										</div>
+
+										<div class="clickable-element" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white; cursor: pointer; transition: all 0.3s; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+											<div style="background: linear-gradient(45deg, #f7fafc, #edf2f7); height: 80px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+												💻
+											</div>
+											<div style="padding: 12px;">
+												<div style="font-weight: 600; font-size: 14px; color: #2d3748; margin-bottom: 4px;">MacBook Pro</div>
+												<div style="color: #718096; font-size: 12px; margin-bottom: 8px;">M3 Chip, 16GB RAM</div>
+												<div style="display: flex; align-items: center; justify-content: space-between;">
+													<div style="font-weight: bold; color: #2d3748;">$1999</div>
+													<div style="color: #a0aec0; text-decoration: line-through; font-size: 12px;">$2499</div>
+												</div>
+												<button class="clickable-element" style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; border: none; padding: 8px 12px; border-radius: 8px; margin-top: 8px; cursor: pointer; transition: all 0.3s; width: 100%; font-size: 12px; font-weight: 500;">В корзину</button>
+											</div>
+										</div>
+
+										<div class="clickable-element" style="border: 1px solid #e2e8f0; border-radius: 12px; background: white; cursor: pointer; transition: all 0.3s; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+											<div style="background: linear-gradient(45deg, #f7fafc, #edf2f7); height: 80px; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+												🎧
+											</div>
+											<div style="padding: 12px;">
+												<div style="font-weight: 600; font-size: 14px; color: #2d3748; margin-bottom: 4px;">AirPods Pro</div>
+												<div style="color: #718096; font-size: 12px; margin-bottom: 8px;">Активное шумоподавление</div>
+												<div style="display: flex; align-items: center; justify-content: space-between;">
+													<div style="font-weight: bold; color: #2d3748;">$249</div>
+													<div style="color: #a0aec0; text-decoration: line-through; font-size: 12px;">$299</div>
+												</div>
+												<button class="clickable-element" style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; border: none; padding: 8px 12px; border-radius: 8px; margin-top: 8px; cursor: pointer; transition: all 0.3s; width: 100%; font-size: 12px; font-weight: 500;">В корзину</button>
+											</div>
+										</div>
+									</div>
+
+									<!-- UI компоненты в футере -->
+									<div style="border-top: 1px solid #e2e8f0; padding-top: 16px; display: flex; align-items: center; justify-content: space-between;">
+										<div style="display: flex; gap: 12px; align-items: center;">
+											<button id="ui-button" class="clickable-element" style="background: linear-gradient(135deg, #4299e1, #3182ce); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-size: 12px; font-weight: 500;">Загрузить еще</button>
+											<div id="ui-loader" class="clickable-element" style="width: 24px; height: 24px; border: 2px solid #e2e8f0; border-top: 2px solid #4299e1; border-radius: 50%; animation: spin 1s linear infinite; cursor: pointer; transition: all 0.3s;"></div>
+										</div>
+										<div style="color: #718096; font-size: 12px;">Показано 3 из 127 товаров</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Кнопки для вызова модальных окон -->
+							<div style="position: absolute; top: 16px; right: 20px; display: flex; gap: 12px; z-index: 500;">
+								<button id="show-cart-btn" style="background: #FF9800; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">Показать корзину</button>
+								<button id="show-login-btn" style="background: #9C27B0; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">Показать вход</button>
+							</div>
+
+							<!-- Модальное окно корзины -->
+							<div id="cart-modal-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: none; align-items: center; justify-content: center;">
+								<div id="cart-modal" class="clickable-element" style="background: white; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); padding: 24px; cursor: pointer; transition: all 0.3s; width: 320px; border: 1px solid #e2e8f0; position: relative;">
+									<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+										<h3 style="margin: 0; color: #2d3748; font-size: 18px;">Корзина</h3>
+										<button id="close-cart" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #a0aec0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">×</button>
+									</div>
+									
+									<div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 16px;">
+										<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+											<div style="width: 50px; height: 50px; background: #f7fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center;">📱</div>
+											<div style="flex: 1;">
+												<div style="font-weight: 500; font-size: 14px; color: #2d3748;">iPhone 15 Pro</div>
+												<div style="color: #718096; font-size: 12px;">256GB, Titanium</div>
+												<div style="font-weight: bold; color: #2d3748; margin-top: 4px;">$999</div>
+											</div>
+											<div style="color: #718096; font-size: 14px;">×1</div>
+										</div>
+										
+										<div style="display: flex; gap: 12px;">
+											<div style="width: 50px; height: 50px; background: #f7fafc; border-radius: 8px; display: flex; align-items: center; justify-content: center;">💻</div>
+											<div style="flex: 1;">
+												<div style="font-weight: 500; font-size: 14px; color: #2d3748;">MacBook Pro</div>
+												<div style="color: #718096; font-size: 12px;">M3 Chip, 16GB RAM</div>
+												<div style="font-weight: bold; color: #2d3748; margin-top: 4px;">$1999</div>
+											</div>
+											<div style="color: #718096; font-size: 14px;">×1</div>
+										</div>
+									</div>
+									
+									<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+										<span style="font-weight: 600; color: #2d3748;">Итого:</span>
+										<span style="font-weight: bold; font-size: 18px; color: #2d3748;">$2998</span>
+									</div>
+									
+									<button style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 500; cursor: pointer; transition: all 0.3s;">Оформить заказ</button>
+								</div>
+							</div>
+
+							<!-- Форма логина -->
+							<div id="login-modal-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: none; align-items: center; justify-content: center;">
+								<div id="login-form" class="clickable-element" style="background: white; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); padding: 24px; cursor: pointer; transition: all 0.3s; width: 280px; border: 1px solid #e2e8f0; position: relative;">
+									<div style="position: absolute; top: 12px; right: 12px;">
+										<button id="close-login" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #a0aec0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">×</button>
+									</div>
+									
+									<div style="text-align: center; margin-bottom: 20px;">
+										<h3 style="margin: 0 0 8px 0; color: #2d3748; font-size: 18px;">Вход в аккаунт</h3>
+										<p style="margin: 0; color: #718096; font-size: 14px;">Введите свои данные</p>
+									</div>
+									
+									<div style="margin-bottom: 16px;">
+										<label style="display: block; color: #4a5568; font-size: 12px; font-weight: 500; margin-bottom: 4px;">Email</label>
+										<input placeholder="example@mail.com" style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; transition: all 0.3s;">
+									</div>
+									
+									<div style="margin-bottom: 20px;">
+										<label style="display: block; color: #4a5568; font-size: 12px; font-weight: 500; margin-bottom: 4px;">Пароль</label>
+										<input placeholder="••••••••" type="password" style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; transition: all 0.3s;">
+									</div>
+									
+									<button style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 500; cursor: pointer; transition: all 0.3s; margin-bottom: 12px;">Войти</button>
+									
+									<div style="text-align: center;">
+										<a href="#" style="color: #4299e1; text-decoration: none; font-size: 12px;">Забыли пароль?</a>
+									</div>
+								</div>
+							</div>
+
+							<!-- Панель с информацией -->
+							<div style="flex: 1; background: #f5f5f5; border-radius: 12px; padding: 20px; max-height: 400px; overflow-y: auto;">
+								<div id="info-panel" style="text-align: left;">
+									<h4 style="color: #666; margin-top: 0;">👆 Кликните на элемент</h4>
+									<p style="color: #888; font-size: 14px;">Выберите любой элемент интерфейса слева, чтобы узнать, в какую папку FSD его следует поместить.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<style>
+						@keyframes spin {
+							0% { transform: rotate(0deg); }
+							100% { transform: rotate(360deg); }
+						}
+
+						.clickable-element:hover {
+							transform: scale(1.05);
+							box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+						}
+
+						.clickable-element.clicked {
+							border: 3px solid #4CAF50 !important;
+							background-color: #E8F5E8 !important;
+						}
+					</style>
+
+					<script>
+						document.addEventListener('DOMContentLoaded', function() {
+							const infoPanel = document.getElementById('info-panel');
+							
+							// Управление модальными окнами
+							const showCartBtn = document.getElementById('show-cart-btn');
+							const showLoginBtn = document.getElementById('show-login-btn');
+							const cartOverlay = document.getElementById('cart-modal-overlay');
+							const loginOverlay = document.getElementById('login-modal-overlay');
+							const closeCartBtn = document.getElementById('close-cart');
+							const closeLoginBtn = document.getElementById('close-login');
+
+							// Показать корзину
+							showCartBtn.addEventListener('click', function() {
+								cartOverlay.style.display = 'flex';
+							});
+
+							// Показать форму входа
+							showLoginBtn.addEventListener('click', function() {
+								loginOverlay.style.display = 'flex';
+							});
+
+							// Закрыть корзину
+							closeCartBtn.addEventListener('click', function(e) {
+								e.stopPropagation();
+								cartOverlay.style.display = 'none';
+							});
+
+							// Закрыть форму входа
+							closeLoginBtn.addEventListener('click', function(e) {
+								e.stopPropagation();
+								loginOverlay.style.display = 'none';
+							});
+
+							// Закрыть модальное окно по клику на оверлей
+							cartOverlay.addEventListener('click', function(e) {
+								if (e.target === cartOverlay) {
+									cartOverlay.style.display = 'none';
+								}
+							});
+
+							loginOverlay.addEventListener('click', function(e) {
+								if (e.target === loginOverlay) {
+									loginOverlay.style.display = 'none';
+								}
+							});
+							
+							const elementInfo = {
+								'header': {
+									title: '🏠 Хедер TechStore',
+									path: 'widgets/header/',
+									description: 'Виджет - сложный UI блок, состоящий из компонентов shared и возможно features. Хедер содержит навигацию, логотип, поиск и корзину. Объединяет несколько features (поиск, корзина) и shared компоненты.',
+									structure: `widgets/header/
+├── ui/
+│   ├── Header.tsx
+│   ├── Navigation.tsx
+│   ├── SearchButton.tsx
+│   └── CartIcon.tsx
+├── model/
+│   └── store.ts
+└── index.ts`
+								},
+								'product-card': {
+									title: '📱 Карточка iPhone 15 Pro',
+									path: 'entities/product/',
+									description: 'Сущность - бизнес-объект со своими данными и операциями. Карточка товара представляет продукт с его характеристиками, ценой и изображением. Содержит данные о товаре, но не бизнес-логику покупки.',
+									structure: `entities/product/
+├── ui/
+│   ├── ProductCard.tsx
+│   ├── ProductImage.tsx
+│   └── ProductPrice.tsx
+├── model/
+│   ├── types.ts
+│   ├── store.ts
+│   └── api.ts
+└── index.ts`
+								},
+								'add-to-cart': {
+									title: '🛒 Кнопка "В корзину"',
+									path: 'features/add-to-cart/',
+									description: 'Фича - завершённое действие пользователя, которое несёт бизнес-ценность. Добавление товара в корзину - это пользовательский сценарий. Содержит логику валидации, обновления состояния корзины и уведомлений.',
+									structure: `features/add-to-cart/
+├── ui/
+│   └── AddToCartButton.tsx
+├── model/
+│   ├── store.ts
+│   ├── use-add-to-cart.ts
+│   └── api.ts
+└── index.ts`
+								},
+								'cart-modal': {
+									title: '🛒 Модальное окно корзины',
+									path: 'widgets/cart-modal/',
+									description: 'Виджет - комплексный UI блок, который объединяет несколько сущностей (товары) и фич (удаление, изменение количества, оформление). Показывает состояние корзины и позволяет управлять ею.',
+									structure: `widgets/cart-modal/
+├── ui/
+│   ├── CartModal.tsx
+│   ├── CartItem.tsx
+│   └── CartSummary.tsx
+├── model/
+│   └── use-cart-modal.ts
+└── index.ts`
+								},
+								'login-form': {
+									title: '🔐 Форма входа в аккаунт',
+									path: 'features/auth/',
+									description: 'Фича - завершённое действие пользователя. Аутентификация - это пользовательская функция со своей бизнес-логикой: валидация данных, отправка запроса, обработка ошибок, сохранение токена.',
+									structure: `features/auth/
+├── ui/
+│   ├── LoginForm.tsx
+│   ├── LoginField.tsx
+│   └── LoginButton.tsx
+├── model/
+│   ├── store.ts
+│   ├── use-login.ts
+│   └── api.ts
+└── index.ts`
+								},
+								'ui-button': {
+									title: '🔘 Кнопка "Загрузить еще"',
+									path: 'shared/ui/Button/',
+									description: 'Shared UI - переиспользуемые компоненты без бизнес-логики. Базовая кнопка с различными стилями (primary, secondary, gradient) используется во всех частях приложения. Только UI, без состояния.',
+									structure: `shared/ui/Button/
+├── Button.tsx
+├── Button.module.css
+├── Button.stories.tsx
+└── index.ts`
+								},
+								'ui-badge': {
+									title: '🏷️ Бейдж "NEW"',
+									path: 'shared/ui/Badge/',
+									description: 'Shared UI - простой переиспользуемый компонент. Бейдж показывает статус, метку или уведомление. Может отображать "NEW", "HOT", "SALE" и другие статусы. Чистый UI компонент.',
+									structure: `shared/ui/Badge/
+├── Badge.tsx
+├── Badge.module.css
+├── Badge.stories.tsx
+└── index.ts`
+								},
+								'ui-loader': {
+									title: '⏳ Индикатор загрузки',
+									path: 'shared/ui/Loader/',
+									description: 'Shared UI - универсальный компонент загрузки. Показывает процесс загрузки данных в разных частях приложения (товары, формы, модальные окна). Анимированный спиннер без логики.',
+									structure: `shared/ui/Loader/
+├── Loader.tsx
+├── Loader.module.css
+├── Loader.stories.tsx
+└── index.ts`
+								},
+								'show-cart-btn': {
+									title: '🛒 Кнопка "Показать корзину"',
+									path: 'shared/ui/Button/',
+									description: 'Shared UI - переиспользуемая кнопка. Триггер для показа модального окна корзины. Простой UI компонент без состояния, который передает событие клика выше по иерархии.',
+									structure: `shared/ui/Button/
+├── Button.tsx
+├── Button.module.css
+├── Button.stories.tsx
+└── index.ts`
+								},
+								'show-login-btn': {
+									title: '🔐 Кнопка "Показать вход"',
+									path: 'shared/ui/Button/',
+									description: 'Shared UI - переиспользуемая кнопка. Триггер для показа формы входа. Аналогично другим кнопкам - чистый UI компонент, логика управления модальными окнами находится выше.',
+									structure: `shared/ui/Button/
+├── Button.tsx
+├── Button.module.css
+├── Button.stories.tsx
+└── index.ts`
+								}
+							};
+
+							Object.keys(elementInfo).forEach(elementId => {
+								const element = document.getElementById(elementId);
+								if (element) {
+									element.addEventListener('click', function() {
+										// Убираем выделение с других элементов
+										document.querySelectorAll('.clicked').forEach(el => {
+											el.classList.remove('clicked');
+										});
+										
+										// Выделяем текущий элемент
+										this.classList.add('clicked');
+										
+										const info = elementInfo[elementId];
+										infoPanel.innerHTML = `
+											<h4 style="color: #2196F3; margin-top: 0;">${info.title}</h4>
+											<div style="background: #E3F2FD; padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+												<strong>📁 Путь:</strong> <code style="background: white; padding: 2px 6px; border-radius: 4px;">${info.path}</code>
+											</div>
+											<p style="font-size: 14px; line-height: 1.5; margin-bottom: 15px;">${info.description}</p>
+											<div style="background: #f8f8f8; padding: 12px; border-radius: 8px; font-family: monospace; font-size: 12px; white-space: pre-line; overflow-x: auto;">${info.structure}</div>
+										`;
+									});
+								}
+							});
+						});
+					</script>
+				</section>
+
 				<section style="height: 100%" data-background-color="#0d8fce">
 					<video style="width: 100%; height: 100%" data-autoplay preload="auto">
 						<source data-src="video/end.mp4">
